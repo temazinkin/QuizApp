@@ -3,9 +3,12 @@ from django.contrib.admin import (
     register,
 )
 
+from quiz.admin.answers import AnswerTabularInline
 from quiz.models import Question
 
 
 @register(Question)
 class QuestionModelAdmin(ModelAdmin):
-    pass
+    inlines = (
+        AnswerTabularInline,
+    )
